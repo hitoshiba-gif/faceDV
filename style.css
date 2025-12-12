@@ -1,0 +1,281 @@
+@charset "UTF-8";
+
+
+/* =========================================
+   Variables & Theme: Rose Gold Luxury
+   ========================================= */
+:root {
+    /* Base Colors */
+    --col-bg: #fffbfb;             /* ほんのり桜色の白 */
+    --col-card: rgba(255, 255, 255, 0.95); /* すりガラス用の白 */
+    
+    /* Text Colors */
+    --col-text-main: #5d4037;      /* 濃いブラウン */
+    --col-text-sub: #a1887f;       /* ミルクティー色 */
+    
+    /* Accent Colors */
+    --col-accent-gold: #c5a059;    /* 落ち着いたゴールド */
+    --col-accent-pink: #e6a4a4;    /* ダスティピンク */
+    --col-accent-gradient: linear-gradient(135deg, #e6a4a4 0%, #d4af37 100%);
+
+    /* UI Elements */
+    --shadow-float: 0 10px 30px rgba(214, 142, 142, 0.15);
+    --radius-card: 24px;
+    --font-main: "Shippori Mincho", "Yu Mincho", serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--col-bg);
+    background-image: 
+        radial-gradient(circle at 10% 10%, rgba(230, 164, 164, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(212, 175, 55, 0.1) 0%, transparent 40%);
+    color: var(--col-text-main);
+    line-height: 1.8;
+    padding: 40px 15px;
+    min-height: 100vh;
+}
+
+/* =========================================
+   Container & Layout
+   ========================================= */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--col-card);
+    padding: 40px 30px;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-float);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 18px;
+    pointer-events: none;
+}
+
+header { text-align: center; margin-bottom: 40px; }
+
+header h1 {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 26px;
+    letter-spacing: 0.1em;
+    color: var(--col-text-main);
+    margin-bottom: 5px;
+    background: var(--col-accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+header p {
+    font-size: 12px;
+    color: var(--col-text-sub);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   Form Elements
+   ========================================= */
+.form-section { margin-bottom: 35px; position: relative; z-index: 2; }
+
+.form-section h2 {
+    font-size: 16px;
+    color: var(--col-accent-gold);
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.form-section h2::before, .form-section h2::after {
+    content: "✦"; color: var(--col-accent-pink); font-size: 12px; margin: 0 10px;
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-size: 14px; color: var(--col-text-main); margin-bottom: 8px; }
+
+.input-group input {
+    width: 100%; padding: 12px 15px; font-size: 16px;
+    color: var(--col-text-main); background: #fff;
+    border: 1px solid #ebdada; border-radius: 12px;
+    font-family: sans-serif; transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.input-group input:focus {
+    outline: none; border-color: var(--col-accent-pink);
+    box-shadow: 0 0 0 3px rgba(230, 164, 164, 0.2);
+}
+
+/* =========================================
+   Buttons & Radio
+   ========================================= */
+.btn-primary {
+    display: block; width: 100%; padding: 18px;
+    background: var(--col-accent-gradient); color: white;
+    border: none; border-radius: 50px; font-size: 16px;
+    font-weight: 600; letter-spacing: 0.1em; cursor: pointer;
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: var(--font-main); position: relative; z-index: 10;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(212, 175, 55, 0.4); }
+
+.btn-secondary {
+    display: block; width: 100%; text-align: center; padding: 15px;
+    margin-top: 20px; color: var(--col-text-sub); text-decoration: none;
+    font-size: 14px; border: 1px solid #ebdada; border-radius: 50px;
+    transition: all 0.2s;
+}
+.btn-secondary:hover { background: #fff5f5; color: var(--col-accent-pink); }
+
+.radio-group {
+    display: flex; gap: 15px; background: #fff; padding: 5px;
+    border-radius: 50px; border: 1px solid #ebdada;
+}
+.radio-label {
+    flex: 1; text-align: center; padding: 10px; border-radius: 50px;
+    cursor: pointer; font-size: 14px; color: var(--col-text-sub);
+    transition: all 0.3s;
+}
+.radio-label:has(input:checked) {
+    background: var(--col-accent-pink); color: white;
+    box-shadow: 0 4px 10px rgba(230, 164, 164, 0.4);
+}
+
+/* =========================================
+   Result Card
+   ========================================= */
+.result-card {
+    background: #fff; border-radius: 20px; padding: 30px 20px;
+    margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    position: relative; overflow: hidden;
+}
+.result-card::after {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--col-accent-gradient);
+}
+.result-card h2, .result-card h3 {
+    text-align: center; font-size: 18px; color: var(--col-text-main);
+    margin-bottom: 25px; font-weight: 600;
+}
+
+.main-score {
+    text-align: center; background: linear-gradient(to bottom, #fff, #fffbfb);
+    border: 1px solid #faeeee;
+}
+.score-row { margin-bottom: 15px; }
+.score-row span { display: block; font-size: 13px; color: var(--col-text-sub); margin-bottom: 5px; }
+
+/* 総合スコアエリア（白抜きバッジ用レイアウト） */
+#res_total_dev {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 15px; margin-top: 15px;
+}
+.score-number {
+    font-size: 64px; font-family: 'Zen Old Mincho', serif;
+    font-weight: bold; color: var(--col-text-main);
+    line-height: 1.0; letter-spacing: -0.02em;
+}
+
+/* ★★★ 白抜きLuxuryバッジ（決定版） ★★★ */
+.badge-container { display: flex; justify-content: center; width: 100%; }
+
+.total-rank-badge {
+    position: relative; display: inline-flex;
+    align-items: center; justify-content: center; gap: 8px;
+    
+    padding: 8px 30px; min-width: 140px;
+    
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 22px; font-weight: 800; letter-spacing: 0.1em;
+    
+    /* 色設定（JS変数） */
+    color: var(--badge-color);
+    background: #fff;
+    border: 2px solid var(--badge-color);
+    border-radius: 50px;
+    
+    box-shadow: 0 4px 15px var(--badge-color-light, rgba(0,0,0,0.1));
+    
+    -webkit-font-smoothing: antialiased; transform: translateZ(0);
+    animation: popBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.badge-icon { font-size: 1.2em; margin-bottom: 3px; }
+
+@keyframes popBounce {
+    0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* スコアグリッド */
+.score-grid {
+    display: flex; justify-content: space-between;
+    margin-top: 25px; padding-top: 20px; border-top: 1px dashed #ebdada;
+}
+.score-grid div { text-align: center; flex: 1; }
+.score-grid .label { font-size: 11px; color: var(--col-text-sub); display: block; margin-bottom: 5px; }
+.score-grid .value {
+    font-family: 'Zen Old Mincho', serif; font-size: 20px;
+    color: var(--col-text-main); font-weight: bold;
+}
+
+/* =========================================
+   List & Others
+   ========================================= */
+.score-list { list-style: none; }
+.score-item { padding: 15px 0; border-bottom: 1px solid #f2e6e6; }
+.score-item:last-child { border-bottom: none; }
+
+.score-item .comparison-box {
+    background: #fdf8f8; border-radius: 8px; padding: 8px 12px;
+    margin-top: 8px; font-size: 12px; display: flex;
+    justify-content: space-between; color: var(--col-text-sub);
+}
+.score-item .comparison-box strong { color: var(--col-text-main); font-family: sans-serif; }
+
+.rank-badge-style {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: bold; color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* コメント欄 */
+.comment-box {
+    background: #fffaf6; border: 1px dashed var(--col-accent-gold);
+    line-height: 2.0; font-size: 14px;
+}
+.comment-box strong { color: var(--col-accent-pink); font-size: 1.2em; }
+
+/* ガイド */
+.guide-box {
+    background: #fff; border: 1px solid #ebdada; border-radius: 16px;
+    padding: 15px; margin-bottom: 30px;
+}
+.guide-toggle {
+    color: var(--col-accent-gold); font-size: 13px; font-weight: 600;
+    cursor: pointer; display: flex; justify-content: space-between;
+}
+.guide-content {
+    display: none; margin-top: 15px; font-size: 13px;
+    color: var(--col-text-main); border-top: 1px dashed var(--col-border);
+    padding-top: 10px;
+}
+.guide-content.open { display: block; animation: fadeIn 0.3s ease; }
+.guide-alert {
+    background: #fff0f0; color: #d66; padding: 10px; border-radius: 8px;
+    font-size: 12px; margin-bottom: 10px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

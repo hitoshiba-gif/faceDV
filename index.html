@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceDV</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* トップページ専用の追加スタイル */
+        .hero-section {
+            text-align: center;
+            padding: 20px 0 40px;
+        }
+        .hero-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--col-text-main);
+            letter-spacing: 0.05em;
+        }
+        .hero-subtitle {
+            font-size: 14px;
+            color: var(--col-accent-gold);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .feature-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .feature-text {
+            font-size: 14px;
+            color: var(--col-text-sub);
+            line-height: 1.6;
+        }
+
+        /* 規約エリア */
+        .terms-container {
+            background: #faf9f8;
+            border: 1px solid var(--col-border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .terms-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .terms-scroll {
+            height: 120px;
+            overflow-y: scroll;
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 10px;
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .terms-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .terms-checkbox input {
+            transform: scale(1.5); /* チェックボックスを大きく */
+            accent-color: var(--col-accent-gold);
+        }
+
+        /* スタートボタン（無効時は薄くする） */
+        .btn-start {
+            opacity: 0.5;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        .btn-start.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header style="margin-bottom: 20px;">
+            <h1 style="font-size: 20px; margin:0;">FaceDV</h1>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-subtitle">Beauty Analytics</div>
+            <h2 class="hero-title">あなたの顔バランスを<br>論理的に解明する。</h2>
+            <p style="font-size: 13px; color: #888;">
+                感覚だけの評価はもう終わり。<br>
+                黄金比・頭身バランス・パーツ配置から<br>
+                あなたのポテンシャルをS〜Cランクで判定します。
+            </p>
+        </section>
+
+        <div class="feature-box">
+            <span class="feature-icon">📐</span>
+            <h3>黄金比分析</h3>
+            <p class="feature-text">
+                「1:1:1」の黄金比率や、<br>
+                顔のパーツ配置をミリ単位で分析。<br>
+                理想値との乖離（ズレ）を算出します。
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <span class="feature-icon">🧍</span>
+            <h3>頭身・スタイル診断</h3>
+            <p class="feature-text">
+                顔の大きさだけでなく、<br>
+                身長とのバランス（頭身）を加味した<br>
+                「総合ルックス偏差値」,FaceDVを導き出します。
+            </p>
+        </div>
+
+        <div class="terms-container">
+            <div class="terms-title">利用規約と同意</div>
+            
+            <div class="terms-scroll">
+                <p><strong>【データの取り扱いについて】</strong></p>
+                <p>本サービス「FaceDV」（以下、当サービス）のご利用にあたり、以下の事項にご同意ください。</p>
+                
+                <p>1. <strong>メールアドレスの収集について</strong><br>
+                当サービスでは、診断結果の保存や、将来的な機能アップデート、関連サービスのご案内のためにメールアドレスの入力を求める場合があります。入力された情報は厳重に管理し、第三者への提供は行いません。</p>
+
+                <p>2. <strong>免責事項</strong><br>
+                本診断結果は、入力された数値を基にした統計的な推計値であり、医学的な診断や絶対的な評価を保証するものではありません。</p>
+
+                <p>3. <strong>クッキーの使用</strong><br>
+                ユーザー体験向上のため、ブラウザのローカルストレージを使用します。</p>
+            </div>
+
+            <label class="terms-checkbox">
+                <input type="checkbox" id="agreeCheck" onchange="toggleButton()">
+                <span>利用規約とデータの取扱いに同意する</span>
+            </label>
+        </div>
+
+        <button id="startBtn" class="btn-primary btn-start" onclick="location.href='input.html'">
+            診断を開始する
+        </button>
+
+    </div>
+
+    <script>
+        function toggleButton() {
+            const checkbox = document.getElementById('agreeCheck');
+            const btn = document.getElementById('startBtn');
+            
+            if (checkbox.checked) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

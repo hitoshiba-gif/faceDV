@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceDV - 結果レポート</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container result-container">
+        <header>
+            <h1>診断結果レポート</h1>
+            <p>あなたのFaceDV</p>
+        </header>
+
+        <section class="result-card main-score">
+            <h2>総合評価</h2>
+            <div class="score-row">
+                <span>あなたの頭身</span>
+                <strong id="res_head_ratio">-</strong>
+            </div>
+            <div class="score-row">
+                <span>FaceDV</span>
+                <strong id="res_total_dev" class="highlight">-</strong>
+            </div>
+            
+            <div class="score-grid">
+                <div>
+                    <span class="label">縦ラインDV</span>
+                    <span id="res_vertical_dev" class="value">-</span>
+                </div>
+                <div>
+                    <span class="label">横ラインDV</span>
+                    <span id="res_horizontal_dev" class="value">-</span>
+                </div>
+                <div>
+                    <span class="label">頭身DV</span>
+                    <span id="res_body_dev" class="value">-</span>
+                </div>
+            </div>
+            </section>
+
+        <section class="result-card">
+            <h3>縦パーツ分析</h3>
+            <ul class="score-list">
+                <li class="score-item" data-key="l_face_height"><span class="label">顎先〜眉上</span></li>
+                <li class="score-item" data-key="v_brow_eye"><span class="label">眉〜目</span></li>
+                <li class="score-item" data-key="v_eye_height"><span class="label">目の縦幅</span></li>
+                <li class="score-item" data-key="v_glabella_nose"><span class="label">眉間〜鼻先</span></li>
+                <li class="score-item" data-key="v_philtrum"><span class="label">人中</span></li>
+                <li class="score-item" data-key="v_lip_height"><span class="label">唇の縦幅</span></li>
+                <li class="score-item" data-key="v_chin_lip"><span class="label">唇下〜顎先</span></li>
+            </ul>
+        </section>
+
+        <section class="result-card">
+            <h3>横パーツ分析</h3>
+            <ul class="score-list">
+                <li class="score-item" data-key="w_cheek"><span class="label">頬骨幅</span></li>
+                <li class="score-item" data-key="w_jaw"><span class="label">エラ幅</span></li>
+                <li class="score-item" data-key="w_inner_eye"><span class="label">目頭間</span></li>
+                <li class="score-item" data-key="w_outer_eye"><span class="label">目尻間</span></li>
+                <li class="score-item" data-key="w_eye_width"><span class="label">片目幅</span></li>
+                <li class="score-item" data-key="w_nose_width"><span class="label">小鼻幅</span></li>
+                <li class="score-item" data-key="w_mouth_width"><span class="label">口幅</span></li>
+                <li class="score-item" data-key="w_chin_width"><span class="label">顎幅</span></li>
+                <li class="score-item" data-key="w_outer_cheek"><span class="label">目尻〜頬骨</span></li>
+            </ul>
+        </section>
+
+        <section class="result-card comment-box">
+            <h3>診断コメント</h3>
+            <p id="res_comment" class="placeholder-text">ここに診断コメントが入ります</p>
+        </section>
+
+        <div class="actions">
+            <a href="input.html" class="btn-secondary">再診断する</a>
+        </div>
+    </div>
+    <script src="result.js"></script>
+</body>
+</html>

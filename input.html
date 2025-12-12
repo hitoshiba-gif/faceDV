@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceDV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Beauty Analytics</h1>
+            
+        </header>
+
+        <div class="guide-box">
+            <div class="guide-toggle" onclick="document.getElementById('guideContent').classList.toggle('open')">
+                <span>❓ 測り方のコツを見る</span>
+                <span>▼</span>
+            </div>
+            <div class="guide-content" id="guideContent">
+                <p class="guide-alert">⚠️ メジャーを顔に巻きつけず、定規などで「直線距離」を測ってください。</p>
+                <ul class="guide-list">
+                    <li><strong>全頭高：</strong>頭頂部〜顎先の高さ。</li>
+                    <li><strong>顔の縦：</strong>眉上のライン〜顎先。</li>
+                    <li><strong>顔の横：</strong>頬骨の一番出ている部分の幅。</li>
+                    <li><strong>鼻の長さ：</strong>上瞼間の中心から、鼻先まで。</li>
+                </ul>
+            </div>
+        </div>
+
+        <form id="measurementForm">
+            <section class="form-section">
+                <h2>基本設定</h2>
+                <div class="input-group">
+                    <label>性別（基準が変わります）</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="male" checked> 男性
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="female"> 女性
+                        </label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>身長 (cm)</label>
+                    <input type="number" name="height" step="0.1" required placeholder="例: 172.0">
+                </div>
+                <div class="input-group">
+                    <label>全頭高 (頭頂部〜顎先) (cm)</label>
+                    <input type="number" name="head_height" step="0.1" required placeholder="例: 22.5">
+                    <small style="font-size:11px; color:#888;">※小顔偏差値の基準になります</small>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>縦パーツ (cm)</h2>
+                <p style="font-size:12px; color:#999; margin-bottom:15px;">※眉上〜顎先を基準にバランスを見ます</p>
+
+                <div class="input-group">
+                    <label>【必須】顎先〜眉上 (顔の縦長さ)</label>
+                    <input type="number" name="l_face_height" step="0.1" required placeholder="例: 12.5">
+                </div>
+                
+                <div class="input-group"><label>眉〜目 (眉下〜目の上)</label><input type="number" name="v_brow_eye" step="0.1"></div>
+                <div class="input-group"><label>目の縦幅 (開いた状態)</label><input type="number" name="v_eye_height" step="0.1"></div>
+                <div class="input-group"><label>上瞼の中心から〜鼻先 (鼻の長さ)</label><input type="number" name="v_glabella_nose" step="0.1"></div>
+                <div class="input-group"><label>人中 (鼻下〜上唇)</label><input type="number" name="v_philtrum" step="0.1"></div>
+                <div class="input-group"><label>唇の縦幅 (上下合わせて)</label><input type="number" name="v_lip_height" step="0.1"></div>
+                <div class="input-group"><label>唇下〜顎先</label><input type="number" name="v_chin_lip" step="0.1"></div>
+            </section>
+
+            <section class="form-section">
+                <h2>横パーツ (cm)</h2>
+                <p style="font-size:12px; color:#999; margin-bottom:15px;">※頬骨幅を基準にバランスを見ます</p>
+
+                <div class="input-group">
+                    <label>【必須】頬骨幅 (顔の最大横幅)</label>
+                    <input type="number" name="w_cheek" step="0.1" required placeholder="例: 14.5">
+                </div>
+
+                <div class="input-group"><label>エラ幅 (顎の角の幅)</label><input type="number" name="w_jaw" step="0.1"></div>
+                <div class="input-group"><label>目頭〜目頭 (目の間の距離)</label><input type="number" name="w_inner_eye" step="0.1"></div>
+                <div class="input-group"><label>目尻〜目尻 (両目の全幅)</label><input type="number" name="w_outer_eye" step="0.1"></div>
+                <div class="input-group"><label>片目幅 (横幅)</label><input type="number" name="w_eye_width" step="0.1"></div>
+                <div class="input-group"><label>小鼻幅 (鼻の横幅)</label><input type="number" name="w_nose_width" step="0.1"></div>
+                <div class="input-group"><label>口幅 (口角〜口角)</label><input type="number" name="w_mouth_width" step="0.1"></div>
+                <div class="input-group"><label>顎幅 (先端の平らな部分)</label><input type="number" name="w_chin_width" step="0.1"></div>
+                <div class="input-group"><label>目尻〜頬骨 (外側の余白)</label><input type="number" name="w_outer_cheek" step="0.1"></div>
+            </section>
+
+            <button type="submit" class="btn-primary">詳細診断する</button>
+        </form>
+    </div>
+    <script src="result.js"></script>
+</body>
+</html>
